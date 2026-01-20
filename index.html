@@ -1,10 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>LabActivity</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warm Flavors | Restaurant & Cafe</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    /* ================= HAMBURGER ================= */
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1100;
+      width: 40px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .menu-btn span {
+      display: block;
+      height: 4px;
+      width: 100%;
+      background: white;
+      margin: 6px 0;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    /* ================= SLIDE NAV ================= */
+    .side-nav {
+      position: fixed;
+      top: 0;
+      left: -280px;
+      width: 280px;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px);
+      padding-top: 80px;
+      transition: 0.4s ease;
+      z-index: 1000;
+    }
+
+    .side-nav.active {
+      left: 0;
+    }
+
+    .side-nav a {
+      display: block;
+      padding: 15px 30px;
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .side-nav a:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .side-nav .logout {
+      margin-top: 30px;
+      background: #d62828;
+    }
+
+    .side-nav .logout:hover {
+      background: #b91c1c;
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+      url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 3rem;
+      border-radius: 20px;
+      max-width: 800px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #d4a373;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #bc8a5f;
+    }
+
+    .btn-secondary {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .cta-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Hello World - Neo Ryle </h1>
+
+  <!-- HAMBURGER BUTTON -->
+  <div class="menu-btn" onclick="toggleNav()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- SLIDE NAVBAR -->
+  <div class="side-nav" id="sideNav">
+    <a href="#">Home</a>
+    <a href="#">Profile</a>
+    <a href="#">About</a>
+    <a href="#" class="logout">Logout</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Escape to Comfort</h1>
+      <p>
+        Experience the finest blend of artisanal coffee and gourmet dining in an
+        atmosphere designed for relaxation. Your table is waiting.
+      </p>
+      <div class="cta-buttons">
+        <a href="#" class="btn btn-primary">Book a Table</a>
+        <a href="#" class="btn btn-secondary">View Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCRIPT -->
+  <script>
+    function toggleNav() {
+      document.getElementById("sideNav").classList.toggle("active");
+    }
+  </script>
+
 </body>
 </html>
